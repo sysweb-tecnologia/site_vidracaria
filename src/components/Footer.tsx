@@ -6,10 +6,10 @@ export function Footer() {
     <footer className="relative mt-auto border-t border-[var(--line)] bg-[#12181f] text-[#eef3f4]">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div>
-          <p className="font-display text-3xl font-bold tracking-tight">Arteflex</p>
+          <p className="font-display text-3xl font-bold tracking-tight">{site.name}</p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/65">
             Desde {site.founded}, fabricando e instalando vidros, divisórias, persianas e
-            toldos para residências, comércios e indústrias em Manaus.
+            toldos para residências, comércios e indústrias.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-white/40 md:px-8">
-        © {new Date().getFullYear()} Arteflex Projetos · Manaus, AM
+        © {new Date().getFullYear()} {site.name} · {site.city}
       </div>
     </footer>
   );

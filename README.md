@@ -1,55 +1,53 @@
-# Arteflex — Site institucional
+# Site Vidraçaria — template multi-cliente
 
-Proposta moderna e responsiva para a Arteflex (Manaus): vidros Blindex®, divisórias, persianas e toldos. Pronta para deploy na Vercel.
+Template Next.js para demos de vidraçarias. Mesmo layout; cada cliente muda só pela config + variável de ambiente na Vercel.
 
-Base de conteúdo: [arteflexprojetos.com](https://www.arteflexprojetos.com/)
+## Clientes disponíveis
 
-## Stack
+| `NEXT_PUBLIC_CLIENT` | Nome no site |
+|----------------------|--------------|
+| `arteflex` | Arteflex (dados reais) |
+| `freitas` | Vidraçaria Freitas |
+| `cooper-vidros` | Cooper Vidros |
+| `classic-vidros` | Classic Vidros |
+| `mold-vidros` | Mold Vidros |
 
-- **Next.js 16** (App Router) + TypeScript
-- **Tailwind CSS 4**
-- **Framer Motion** (animações leves)
-- **Lucide React** (ícones)
-- Otimizado para **Vercel** (SSG das páginas de serviço)
+Demos (exceto Arteflex): telefone `(99) 9 9999-9999`, imagens e textos padrão — só o nome muda.
 
-## Desenvolvimento
+Configs em `src/lib/clients/`.
+
+## Desenvolvimento local
 
 ```bash
 npm install
+cp .env.example .env.local   # se ainda não existir
+# edite NEXT_PUBLIC_CLIENT=freitas (ou outro)
 npm run dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000).
+## Deploy na Vercel (um link por cliente)
 
-## Build
+Para cada cliente, crie um **projeto separado** no mesmo repositório:
 
-```bash
-npm run build
-npm start
-```
+1. [vercel.com/new](https://vercel.com/new) → importe o repo
+2. Nome do projeto, ex: `vidracaria-freitas`
+3. **Environment Variables:**
+   - `NEXT_PUBLIC_CLIENT` = `freitas` (ou o id do cliente)
+4. Deploy
 
-## Deploy na Vercel
+Repita para `cooper-vidros`, `classic-vidros`, `mold-vidros`, `arteflex`.
 
-1. Suba o repositório no GitHub/GitLab/Bitbucket
-2. Importe o projeto em [vercel.com/new](https://vercel.com/new)
-3. Framework: **Next.js** (detectado automaticamente)
-4. Deploy — sem variáveis de ambiente obrigatórias
+Cada projeto gera um link próprio (ex: `vidracaria-freitas.vercel.app`).
 
-Ou via CLI:
+## Novo cliente
 
-```bash
-npx vercel
-```
+1. Crie `src/lib/clients/novo-cliente.ts` com `createDemoClient("novo-cliente", "Nome Fantasia")`
+2. Registre em `src/lib/clients/index.ts`
+3. Na Vercel: novo projeto + `NEXT_PUBLIC_CLIENT=novo-cliente`
 
-## Contato no site
+## Stack
 
-- WhatsApp: `(92) 99265-2113`
-- E-mails e endereço conforme o site atual da Arteflex
-
-Para alterar dados, edite `src/lib/site.ts`.
-
-## Estrutura
-
-- `/` — home (hero, serviços, sobre, Blindex, CTA)
-- `/servicos/[slug]` — páginas de cada solução
-- `/contato` — telefone, e-mails, mapa e WhatsApp
+- Next.js 16 (App Router) + TypeScript
+- Tailwind CSS 4
+- Framer Motion
+- Deploy na Vercel

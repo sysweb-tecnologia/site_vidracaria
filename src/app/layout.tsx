@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Manrope, Syne } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const syne = Syne({
@@ -18,26 +21,26 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://arteflex.vercel.app"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://site-vidracaria.vercel.app",
+  ),
   title: {
-    default: "Arteflex | Vidros, Divisórias, Persianas e Toldos em Manaus",
-    template: "%s | Arteflex Manaus",
+    default: `${site.name} | Vidros, Divisórias, Persianas e Toldos`,
+    template: `%s | ${site.name}`,
   },
-  description:
-    "Arteflex — desde 2002 em Manaus. Vidro temperado Blindex®, divisórias drywall, persianas, cortinas, toldos e coberturas sob medida.",
+  description: `${site.name} — vidro temperado Blindex®, divisórias drywall, persianas, cortinas, toldos e coberturas sob medida.`,
   keywords: [
-    "Arteflex",
-    "vidraçaria Manaus",
-    "Blindex Manaus",
-    "persianas Manaus",
+    site.name,
+    "vidraçaria",
+    "Blindex",
+    "persianas",
     "divisórias drywall",
     "toldos",
     "vidro temperado",
   ],
   openGraph: {
-    title: "Arteflex | Projetos em vidro e acabamentos — Manaus",
-    description:
-      "Vidros, espelhos, divisórias, persianas e toldos com fabricação e instalação em Manaus.",
+    title: `${site.name} | Projetos em vidro e acabamentos`,
+    description: `Vidros, espelhos, divisórias, persianas e toldos com fabricação e instalação.`,
     locale: "pt_BR",
     type: "website",
   },
@@ -56,6 +59,8 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

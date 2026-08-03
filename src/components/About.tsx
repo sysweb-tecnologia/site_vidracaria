@@ -2,7 +2,7 @@ import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 
 const stats = [
-  { value: String(new Date().getFullYear() - site.founded), label: "anos em Manaus" },
+  { value: String(new Date().getFullYear() - site.founded), label: "anos de experiência" },
   { value: "4", label: "linhas de solução" },
   { value: "1", label: "padrão: qualidade" },
 ];
@@ -19,7 +19,7 @@ export function About() {
             Fundada em {site.founded}, com foco em atendimento e atualização constante.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-ink-soft md:text-lg">
-            A Arteflex atua na fabricação e montagem de persianas, divisórias, boxes,
+            A {site.name} atua na fabricação e montagem de persianas, divisórias, boxes,
             portas e janelas em vidro temperado, paredes e forros drywall. Nosso
             objetivo é satisfazer clientes no comércio, na indústria e nas residências —
             com política de bom atendimento, qualidade e atualização de mercado.

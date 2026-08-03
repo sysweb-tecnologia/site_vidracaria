@@ -40,7 +40,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          Arteflex
+          {site.name}
         </motion.h1>
 
         <motion.p

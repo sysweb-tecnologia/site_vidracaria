@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { nav, whatsappUrl } from "@/lib/site";
+import { nav, site, whatsappUrl } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -41,14 +41,14 @@ export function Header() {
               solid ? "text-ink" : "text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)]"
             }`}
           >
-            Arteflex
+            {site.name}
           </span>
           <span
             className={`mt-0.5 block text-[10px] uppercase tracking-[0.22em] transition-colors duration-300 ${
               solid ? "text-ink-soft/70" : "text-white/75"
             }`}
           >
-            Manaus · desde 2002
+            {site.city} · desde {site.founded}
           </span>
         </Link>
 

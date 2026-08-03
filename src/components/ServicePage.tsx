@@ -4,7 +4,7 @@ import { ArrowLeft, Check } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { ContactCTA } from "@/components/ContactCTA";
 import type { Service } from "@/lib/site";
-import { services, whatsappUrl } from "@/lib/site";
+import { services, site, whatsappUrl } from "@/lib/site";
 
 type ServicePageProps = {
   service: Service;
@@ -37,7 +37,7 @@ export function ServicePage({ service }: ServicePageProps) {
             Todas as soluções
           </Link>
           <p className="text-xs uppercase tracking-[0.24em] text-white/60">
-            Arteflex · Manaus
+            {site.name} · {site.city}
           </p>
           <h1 className="font-display mt-3 max-w-3xl text-5xl font-bold tracking-tight text-white md:text-7xl">
             {service.title}
@@ -45,7 +45,7 @@ export function ServicePage({ service }: ServicePageProps) {
           <p className="mt-5 max-w-xl text-lg text-white/85">{service.short}</p>
           <a
             href={whatsappUrl(
-              `Olá! Vim pelo site da Arteflex e quero orçamento de ${service.title}.`,
+              `Olá! Vim pelo site da ${site.name} e quero orçamento de ${service.title}.`,
             )}
             target="_blank"
             rel="noopener noreferrer"

@@ -20,8 +20,8 @@ export function ContactCTA() {
                   Vamos medir, projetar e entregar o seu ambiente.
                 </h2>
                 <p className="mt-4 max-w-lg text-base text-white/70">
-                  Fale pelo WhatsApp e receba atendimento direto da equipe Arteflex
-                  em Manaus.
+                  Fale pelo WhatsApp e receba atendimento direto da equipe{" "}
+                  {site.name}.
                 </p>
                 <a
                   href={whatsappUrl()}

@@ -5,8 +5,7 @@ import { site, whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contato",
-  description:
-    "Fale com a Arteflex em Manaus — WhatsApp, e-mail e endereço na Feira Municipal do Santo Antônio.",
+  description: `Fale com a ${site.name} — WhatsApp, e-mail e endereço.`,
 };
 
 export default function ContatoPage() {
@@ -16,12 +15,11 @@ export default function ContatoPage() {
         <Reveal>
           <p className="text-xs uppercase tracking-[0.24em] text-teal-deep">Contato</p>
           <h1 className="font-display mt-3 text-5xl font-bold tracking-tight text-ink md:text-6xl">
-            Fale com a Arteflex
+            Fale com a {site.name}
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg">
-            Atendimento para residências, comércios e indústrias em Manaus. Peça
-            orçamento pelo WhatsApp ou envie um e-mail — respondemos com foco no
-            seu projeto.
+            Atendimento para residências, comércios e indústrias. Peça orçamento
+            pelo WhatsApp ou envie um e-mail — respondemos com foco no seu projeto.
           </p>
 
           <a
@@ -97,7 +95,7 @@ export default function ContatoPage() {
         <Reveal>
           <div className="overflow-hidden rounded-[1.8rem] border border-[var(--line)] bg-white/40">
             <iframe
-              title="Mapa Arteflex Manaus"
+              title={`Mapa ${site.name}`}
               src="https://www.google.com/maps?q=Av.+Pe.+Agostinho+Caballero+Martins,+460,+Manaus,+AM&output=embed"
               className="h-[320px] w-full md:h-[420px]"
               loading="lazy"
