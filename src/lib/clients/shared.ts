@@ -1,4 +1,4 @@
-import type { ClientConfig, ClientId, Service } from "./types";
+import type { ClientConfig, Service } from "./types";
 
 /** Contato placeholder para demos sem dados reais do cliente */
 export const DEMO_CONTACT = {
@@ -110,7 +110,7 @@ export function buildServices(brandName: string): Service[] {
 }
 
 /** Cliente demo: mesmo layout/conteúdo, só o nome muda */
-export function createDemoClient(id: ClientId, name: string): ClientConfig {
+export function createDemoClient(id: string, name: string): ClientConfig {
   return {
     id,
     name,

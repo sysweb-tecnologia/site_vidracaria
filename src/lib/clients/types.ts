@@ -1,9 +1,5 @@
-export type ClientId =
-  | "arteflex"
-  | "freitas"
-  | "cooper-vidros"
-  | "classic-vidros"
-  | "mold-vidros";
+/** Id usado em NEXT_PUBLIC_CLIENT — ver registro em index.ts */
+export type ClientId = string;
 
 export type ServiceSlug =
   | "vidros-e-espelhos"
