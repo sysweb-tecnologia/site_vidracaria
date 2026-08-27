@@ -1,70 +1,43 @@
-# Site Vidraçaria — template multi-cliente
+# Site multi-nicho
 
-Template Next.js para demos de vidraçarias. Mesmo layout; cada cliente muda só pela config + variável de ambiente na Vercel.
+Template Next.js para demos por nicho. Mesmo layout; cada nicho muda mídia, serviços e textos pela config + variável de ambiente.
 
-## Clientes disponíveis
+## Nichos disponíveis
 
-### Base
 | `NEXT_PUBLIC_CLIENT` | Nome no site |
 |----------------------|--------------|
-| `arteflex` | Arteflex (dados reais) |
-| `freitas` | Vidraçaria Freitas |
-| `cooper-vidros` | Cooper Vidros |
-| `classic-vidros` | Classic Vidros |
-| `mold-vidros` | Mold Vidros |
+| `advogados` | Vértice Advogados |
+| `moveis-planejados` | Habitare Planejados |
+| `clinica-estetica` | Lumina Estética |
 
-### Prospects
-| `NEXT_PUBLIC_CLIENT` | Nome no site |
-|----------------------|--------------|
-| `manaus-vidros-e-aluminio` | Manaus Vidros e Alumínio |
-| `dois-irmaos-jp` | Vidraçaria Dois Irmãos JP |
-| `mangueira-pimenta-vidros` | Mangueira Pimenta Vidros |
-| `box-metal` | Vidraçaria Box Metal |
-| `brandao` | Vidraçaria Brandão |
-| `amazon-box` | Vidraçaria Amazon Box |
-| `vidro-sam` | Vidro Sam e Instalações |
-| `vidracaria-nova` | Vidraçaria Nova |
-| `vidroluxo` | Vidraçaria Vidroluxo |
-| `bv-vidracaria` | BV Vidraçaria |
-| `jc-box` | JC Box e Vidraçaria |
-| `viana` | Vidraçaria Viana |
-| `efama` | Efama Metalúrgica e Vidraçaria |
-| `vidro-haus` | Vidro Haus Vidraçaria |
-| `avenida-vidracaria` | Avenida Vidraçaria |
-| `mundial-vidros-betania` | Mundial Vidros Betania |
-| `manaus-vidros` | Manaus Vidros |
-| `gm-vidros` | GM Vidros e Ferragens |
-
-Demos (exceto Arteflex): telefone `(99) 9 9999-9999`, imagens e textos padrão — só o nome muda.
-
-Configs em `src/lib/clients/` (`prospects.ts` para a lista acima).
+Configs em `src/lib/niches/`. Contato demo: telefone `(99) 9 9999-9999`.
 
 ## Desenvolvimento local
 
 ```bash
 npm install
 cp .env.example .env.local   # se ainda não existir
-# edite NEXT_PUBLIC_CLIENT=vidroluxo (ou outro)
+# edite NEXT_PUBLIC_CLIENT=advogados (ou outro nicho)
 npm run dev
 ```
 
-## Deploy na Vercel (um link por cliente)
+## Deploy na Vercel (um link por nicho)
 
-Para cada cliente, crie um **projeto separado** no mesmo repositório:
+Para cada nicho, crie um **projeto separado** no mesmo repositório:
 
 1. [vercel.com/new](https://vercel.com/new) → importe o repo
-2. Nome do projeto, ex: `vidracaria-vidroluxo`
+2. Nome do projeto, ex: `nicho-advogados`
 3. **Environment Variables:**
-   - `NEXT_PUBLIC_CLIENT` = `vidroluxo` (ou o id do cliente)
+   - `NEXT_PUBLIC_CLIENT` = `advogados` (ou o id do nicho)
 4. Deploy
 
-Cada projeto gera um link próprio (ex: `vidracaria-vidroluxo.vercel.app`).
+Cada projeto gera um link próprio.
 
-## Novo cliente
+## Novo nicho
 
-1. Em `src/lib/clients/prospects.ts`, adicione:
-   `createDemoClient("id-do-cliente", "Nome Fantasia")`
-2. Na Vercel: novo projeto + `NEXT_PUBLIC_CLIENT=id-do-cliente`
+1. Crie `src/lib/niches/seu-nicho.ts` com a estrutura de `NicheConfig` (veja `advogados.ts`)
+2. Registre em `src/lib/niches/index.ts`
+3. Na Vercel: novo projeto + `NEXT_PUBLIC_CLIENT=seu-nicho`
 
 ## Stack
 

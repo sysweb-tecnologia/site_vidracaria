@@ -1,15 +1,17 @@
 import Link from "next/link";
-import { nav, site, whatsappUrl } from "@/lib/site";
+import { nav, serviceNav, site, whatsappUrl } from "@/lib/site";
 
 export function Footer() {
   return (
     <footer className="relative mt-auto border-t border-[var(--line)] bg-[#12181f] text-[#eef3f4]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:px-8">
         <div>
           <p className="font-display text-3xl font-bold tracking-tight">{site.name}</p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/65">
-            Desde {site.founded}, fabricando e instalando vidros, divisórias, persianas e
-            toldos para residências, comércios e indústrias.
+            {site.footer.description}
+          </p>
+          <p className="mt-4 text-xs uppercase tracking-[0.18em] text-white/40">
+            {site.tagline}
           </p>
         </div>
 
@@ -17,6 +19,19 @@ export function Footer() {
           <p className="text-xs uppercase tracking-[0.2em] text-white/45">Navegação</p>
           <ul className="mt-4 space-y-2">
             {nav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-sm text-white/75 hover:text-white">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-xs uppercase tracking-[0.2em] text-white/45">Soluções</p>
+          <ul className="mt-4 space-y-2">
+            {serviceNav.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-sm text-white/75 hover:text-white">
                   {item.label}

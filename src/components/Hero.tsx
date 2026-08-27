@@ -12,8 +12,8 @@ export function Hero() {
     <section className="relative min-h-[100svh] overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=85"
-          alt="Arquitetura contemporânea com grandes planos de vidro"
+          src={site.hero.image}
+          alt={site.hero.imageAlt}
           fill
           priority
           className="object-cover object-center"
@@ -49,8 +49,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Projetos em vidro, divisórias, persianas e toldos que transformam
-          ambientes com precisão e presença.
+          {site.hero.support}
         </motion.p>
 
         <motion.div
@@ -82,12 +81,9 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
         >
-          <p className="max-w-xs text-sm leading-relaxed">
-            Fabricação e instalação com atendimento direto em Manaus —
-            residências, comércios e indústrias.
-          </p>
+          <p className="max-w-xs text-sm leading-relaxed">{site.hero.footerNote}</p>
           <p className="font-display text-sm uppercase tracking-[0.22em]">
-            Blindex® · Drywall · Persianas
+            {site.hero.badges}
           </p>
         </motion.div>
       </div>

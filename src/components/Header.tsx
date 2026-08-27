@@ -1,14 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { nav, site, whatsappUrl } from "@/lib/site";
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const darkHero =
+    pathname === "/" || pathname === "/sobre" || pathname.startsWith("/servicos");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -24,7 +29,7 @@ export function Header() {
     };
   }, [open]);
 
-  const solid = scrolled || open;
+  const solid = scrolled || open || !darkHero;
 
   return (
     <header

@@ -18,8 +18,7 @@ export default function ContatoPage() {
             Fale com a {site.name}
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg">
-            Atendimento para residências, comércios e indústrias. Peça orçamento
-            pelo WhatsApp ou envie um e-mail — respondemos com foco no seu projeto.
+            {site.contact.pageIntro}
           </p>
 
           <a

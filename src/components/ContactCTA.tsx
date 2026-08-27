@@ -17,11 +17,10 @@ export function ContactCTA() {
                   Contato
                 </p>
                 <h2 className="font-display mt-3 max-w-xl text-4xl font-bold tracking-tight md:text-5xl">
-                  Vamos medir, projetar e entregar o seu ambiente.
+                  {site.contact.title}
                 </h2>
                 <p className="mt-4 max-w-lg text-base text-white/70">
-                  Fale pelo WhatsApp e receba atendimento direto da equipe{" "}
-                  {site.name}.
+                  {site.contact.description}
                 </p>
                 <a
                   href={whatsappUrl()}

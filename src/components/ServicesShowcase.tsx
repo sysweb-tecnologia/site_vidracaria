@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { services, type Service } from "@/lib/site";
+import { services, site, type Service } from "@/lib/site";
 
 function ServiceTile({
   service,
@@ -75,12 +75,11 @@ export function ServicesShowcase() {
                 Soluções
               </p>
               <h2 className="font-display mt-3 text-4xl font-bold tracking-tight text-ink md:text-5xl">
-                Quatro frentes. Um padrão de execução.
+                {site.servicesIntro.title}
               </h2>
             </div>
             <p className="text-sm leading-relaxed text-ink-soft md:col-span-5 md:text-base">
-              Do vidro temperado à cortina hospitalar — fabricação e montagem
-              com foco em acabamento e atendimento em Manaus.
+              {site.servicesIntro.description}
             </p>
           </div>
         </Reveal>

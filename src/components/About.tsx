@@ -1,11 +1,14 @@
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 
-const stats = [
-  { value: String(new Date().getFullYear() - site.founded), label: "anos de experiência" },
-  { value: "4", label: "linhas de solução" },
-  { value: "1", label: "padrão: qualidade" },
-];
+const years = String(new Date().getFullYear() - site.founded);
+
+const stats = site.about.stats.map((stat, index) => ({
+  value: index === 0 ? years : (stat.value ?? ""),
+  label: stat.label,
+}));
 
 export function About() {
   return (
@@ -13,17 +16,21 @@ export function About() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-[1.1fr_0.9fr] md:items-end md:gap-16 md:px-8">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.24em] text-teal-deep">
-            A empresa
+            {site.about.eyebrow}
           </p>
           <h2 className="font-display mt-3 text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Fundada em {site.founded}, com foco em atendimento e atualização constante.
+            {site.about.title}
           </h2>
           <p className="mt-6 text-base leading-relaxed text-ink-soft md:text-lg">
-            A {site.name} atua na fabricação e montagem de persianas, divisórias, boxes,
-            portas e janelas em vidro temperado, paredes e forros drywall. Nosso
-            objetivo é satisfazer clientes no comércio, na indústria e nas residências —
-            com política de bom atendimento, qualidade e atualização de mercado.
+            {site.about.body}
           </p>
+          <Link
+            href="/sobre"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-teal-deep transition hover:text-teal"
+          >
+            Conhecer a história completa
+            <ArrowUpRight size={16} />
+          </Link>
         </Reveal>
 
         <Reveal delay={0.1}>
