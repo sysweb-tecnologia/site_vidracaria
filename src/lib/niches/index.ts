@@ -1,5 +1,6 @@
 import { advogados } from "./advogados";
 import { clinicaEstetica } from "./clinica-estetica";
+import { fonoaudiologia } from "./fonoaudiologia";
 import { moveisPlanejados } from "./moveis-planejados";
 import type { NicheConfig, NicheId } from "./types";
 
@@ -7,6 +8,7 @@ export const niches: Record<string, NicheConfig> = {
   advogados,
   "moveis-planejados": moveisPlanejados,
   "clinica-estetica": clinicaEstetica,
+  fonoaudiologia,
 };
 
 export const nicheIds = Object.keys(niches);

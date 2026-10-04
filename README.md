@@ -9,6 +9,7 @@ Template Next.js para demos por nicho. Mesmo layout; cada nicho muda mídia, ser
 | `advogados` | Vértice Advogados |
 | `moveis-planejados` | Habitare Planejados |
 | `clinica-estetica` | Lumina Estética |
+| `fonoaudiologia` | VivaVoz |
 
 Configs em `src/lib/niches/`. Contato demo: telefone `(99) 9 9999-9999`.
 
